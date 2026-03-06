@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Gaming | Premium Gaming Electronics</title>
+    <meta name="description" content="Premium gaming keyboards, headsets, monitors & peripherals. Level up your setup with professional-grade gaming electronics.">
+    <meta name="theme-color" content="#0a0e14">
+    <meta property="og:title" content="Nexus Gaming | Premium Gaming Electronics">
+    <meta property="og:description" content="Shop elite gaming keyboards, mice, headsets, monitors, and more.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="grid-bg" aria-hidden="true"></div>
+    <p class="announcement-bar">Free express shipping over $99 | 2-year warranty on every order</p>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="#home" class="logo">
+                <span class="logo-icon">▶</span>
+                <span>Nexus Gaming</span>
+            </a>
+            <nav class="nav">
+                <a href="#home">Home</a>
+                <a href="#collection">Shop</a>
+                <a href="#categories">Categories</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <button class="icon-btn" id="search-toggle" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                    </svg>
+                </button>
+                <button class="icon-btn" id="cart-toggle" aria-label="Cart">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Search overlay -->
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-inner">
+            <input type="text" id="search-input" placeholder="Search gaming gear..." autocomplete="off">
+            <button class="search-close" aria-label="Close search">&times;</button>
+            <div class="search-results" id="search-results"></div>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p class="hero-label">Pro-grade gaming hardware</p>
+            <h1>Dominate the Arena</h1>
+            <p class="hero-desc">Premium keyboards, precision mice, immersive headsets — built for esports and enthusiasts. Performance you can feel.</p>
+            <a href="#collection" class="btn btn-primary">Shop Now</a>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-card hero-card-1">
+                <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=500" alt="Gaming setup">
+                <span class="card-label">Keyboards</span>
+            </div>
+            <div class="hero-card hero-card-2">
+                <img src="https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=500" alt="Gaming headset">
+                <span class="card-label">Headsets</span>
+            </div>
+            <div class="hero-card hero-card-3">
+                <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500" alt="Gaming monitor">
+                <span class="card-label">Monitors</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Metrics -->
+    <section class="trust-strip">
+        <div class="container">
+            <div class="trust-grid">
+                <article class="trust-card reveal">
+                    <h3>48h</h3>
+                    <p>Average dispatch time on in-stock gear</p>
+                </article>
+                <article class="trust-card reveal">
+                    <h3>4.9/5</h3>
+                    <p>Verified customer rating from 12k+ orders</p>
+                </article>
+                <article class="trust-card reveal">
+                    <h3>97%</h3>
+                    <p>Players report better comfort after setup upgrade</p>
+                </article>
+                <article class="trust-card reveal">
+                    <h3>24/7</h3>
+                    <p>Support from gaming hardware specialists</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Collection -->
+    <section id="collection" class="section collection">
+        <div class="container">
+            <div class="collection-toolbar">
+                <div class="section-header">
+                    <p class="section-label">Full catalog</p>
+                    <h2>Gaming Gear</h2>
+                </div>
+                <div class="collection-controls">
+                    <div class="filter-buttons" id="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="keyboards">Keyboards</button>
+                        <button class="filter-btn" data-filter="mice">Mice</button>
+                        <button class="filter-btn" data-filter="headsets">Headsets</button>
+                        <button class="filter-btn" data-filter="monitors">Monitors</button>
+                        <button class="filter-btn" data-filter="chairs">Chairs</button>
+                        <button class="filter-btn" data-filter="peripherals">Peripherals</button>
+                    </div>
+                    <div class="collection-meta">
+                        <label class="sort-wrap" for="sort-select">
+                            <span>Sort</span>
+                            <select id="sort-select" aria-label="Sort products">
+                                <option value="featured">Featured</option>
+                                <option value="price-asc">Price: Low to high</option>
+                                <option value="price-desc">Price: High to low</option>
+                                <option value="name-asc">Name: A to Z</option>
+                            </select>
+                        </label>
+                        <button type="button" id="clear-filters" class="clear-filters-btn">Clear</button>
+                        <div class="product-count" id="product-count" aria-live="polite">12 products</div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-grid" id="product-grid"></div>
+            <div class="no-results" id="no-results" style="display: none;">
+                <p>No products match your search. Try a different filter or search term.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Player stories</p>
+                <h2>Setups That Actually Win</h2>
+            </div>
+            <div class="testimonial-grid">
+                <article class="testimonial-card reveal">
+                    <p>"Switched to the Pro X keyboard and my reaction speed in ranked feels way cleaner. Build quality is unreal."</p>
+                    <h4>Amine R.</h4>
+                    <span>Valorant player</span>
+                </article>
+                <article class="testimonial-card reveal">
+                    <p>"The 240Hz monitor made tracking feel effortless. Shipping was fast and setup guides were actually useful."</p>
+                    <h4>Leila B.</h4>
+                    <span>FPS streamer</span>
+                </article>
+                <article class="testimonial-card reveal">
+                    <p>"Chair and desk combo solved my back pain during long sessions. Support team answered in minutes."</p>
+                    <h4>Nabil K.</h4>
+                    <span>Content creator</span>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section id="categories" class="section categories">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Shop by category</p>
+                <h2>Categories</h2>
+            </div>
+            <div class="category-grid">
+                <button type="button" class="category-card" data-category="keyboards">
+                    <div class="category-visual" style="background-image: url('https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=400')"></div>
+                    <h3>Keyboards</h3>
+                    <p>Mechanical & RGB</p>
+                </button>
+                <button type="button" class="category-card" data-category="mice">
+                    <div class="category-visual" style="background-image: url('https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400')"></div>
+                    <h3>Gaming Mice</h3>
+                    <p>Precision & speed</p>
+                </button>
+                <button type="button" class="category-card" data-category="headsets">
+                    <div class="category-visual" style="background-image: url('https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400')"></div>
+                    <h3>Headsets</h3>
+                    <p>Immersive audio</p>
+                </button>
+                <button type="button" class="category-card" data-category="monitors">
+                    <div class="category-visual" style="background-image: url('https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400')"></div>
+                    <h3>Monitors</h3>
+                    <p>High refresh rate</p>
+                </button>
+                <button type="button" class="category-card" data-category="chairs">
+                    <div class="category-visual" style="background-image: url('https://images.unsplash.com/photo-1580480054693-897d289e7ca3?w=400')"></div>
+                    <h3>Chairs & Desks</h3>
+                    <p>Ergonomic setup</p>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <p class="section-label">Our mission</p>
+                    <h2>Built for Champions</h2>
+                    <p class="about-desc">From casual players to esports pros, we curate the finest gaming hardware. Every product is tested for performance, durability, and that competitive edge. Your gear should never hold you back.</p>
+                    <ul class="about-features">
+                        <li>Rigorous quality testing</li>
+                        <li>2-year warranty on all products</li>
+                        <li>Free express shipping over $99</li>
+                        <li>Expert support 24/7</li>
+                    </ul>
+                </div>
+                <div class="about-visual">
+                    <div class="about-card"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-inner">
+                <h2>Join the Nexus</h2>
+                <p>Get 10% off your first order and exclusive drops on new gaming gear.</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#home" class="logo">
+                        <span class="logo-icon">▶</span>
+                        <span>Nexus Gaming</span>
+                    </a>
+                    <p>Premium gaming electronics for players who demand the best. Level up your setup.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Shop</h4>
+                    <a href="#collection">All Products</a>
+                    <a href="#collection" data-filter-link="keyboards">Keyboards</a>
+                    <a href="#collection" data-filter-link="headsets">Headsets</a>
+                    <a href="#collection" data-filter-link="monitors">Monitors</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <a href="#">Warranty</a>
+                    <a href="#">Shipping</a>
+                    <a href="#">FAQ</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <a href="mailto:support@nexusgaming.com">support@nexusgaming.com</a>
+                    <a href="tel:+18005551234">1-800-555-1234</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span id="current-year"></span> Nexus Gaming. Demo e-commerce for gaming electronics.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Detail Modal -->
+    <div class="modal product-preview-modal" id="product-modal" aria-hidden="true">
+        <div class="modal-backdrop product-modal-backdrop"></div>
+        <div class="modal-content product-modal-content">
+            <button class="modal-close product-modal-close" aria-label="Close">&times;</button>
+            <div class="product-modal-body" id="product-modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cart-modal" aria-hidden="true">
+        <div class="modal-backdrop cart-modal-backdrop"></div>
+        <div class="modal-content cart-modal">
+            <div class="modal-header">
+                <h3>Your Cart</h3>
+                <button class="modal-close cart-modal-close" aria-label="Close cart">&times;</button>
+            </div>
+            <div class="modal-body cart-modal-body">
+                <p class="cart-empty" id="cart-empty">Your cart is empty. Add some gear!</p>
+                <div class="cart-items-wrap">
+                    <div class="cart-items" id="cart-items"></div>
+                    <div class="cart-footer" id="cart-footer" style="display: none;">
+                        <div class="cart-subtotal">
+                            <span>Subtotal</span>
+                            <strong id="cart-subtotal">$0</strong>
+                        </div>
+                        <p class="cart-shipping-note">Free shipping on orders over $99</p>
+                        <button class="btn btn-primary btn-checkout" id="checkout-btn">Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkout-modal" aria-hidden="true">
+        <div class="modal-backdrop checkout-modal-backdrop"></div>
+        <div class="modal-content checkout-modal-content">
+            <div class="modal-header">
+                <h3>Checkout</h3>
+                <button class="modal-close checkout-modal-close" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body checkout-modal-body">
+                <form id="checkout-form" class="checkout-form">
+                    <div class="checkout-section">
+                        <h4>Contact</h4>
+                        <div class="form-row">
+                            <input type="text" name="firstName" placeholder="First name" required>
+                            <input type="text" name="lastName" placeholder="Last name" required>
+                        </div>
+                        <input type="email" name="email" placeholder="Email" required>
+                        <input type="tel" name="phone" placeholder="Phone">
+                    </div>
+                    <div class="checkout-section">
+                        <h4>Shipping</h4>
+                        <input type="text" name="address" placeholder="Address" required>
+                        <div class="form-row">
+                            <input type="text" name="city" placeholder="City" required>
+                            <input type="text" name="postalCode" placeholder="ZIP" required>
+                        </div>
+                        <input type="text" name="country" placeholder="Country" value="United States" required>
+                    </div>
+                    <div class="checkout-section">
+                        <h4>Payment</h4>
+                        <div class="payment-methods">
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="card" checked>
+                                <span>Credit / Debit Card</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="paypal">
+                                <span>PayPal</span>
+                            </label>
+                        </div>
+                        <p class="payment-note">Demo: No payment will be processed.</p>
+                    </div>
+                    <div class="checkout-order-summary" id="checkout-order-summary"></div>
+                    <button type="submit" class="btn btn-primary btn-place-order" id="place-order-btn">Place Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Confirmation -->
+    <div class="modal" id="confirmation-modal" aria-hidden="true">
+        <div class="modal-backdrop confirmation-modal-backdrop"></div>
+        <div class="modal-content confirmation-modal-content">
+            <div class="confirmation-body">
+                <div class="confirmation-icon">✓</div>
+                <h3>Order Confirmed!</h3>
+                <p class="confirmation-order-id">Order #<span id="order-number"></span></p>
+                <p class="confirmation-message">Thanks for your order. Shipment details will be emailed shortly.</p>
+                <button class="btn btn-primary" id="confirmation-continue">Continue Shopping</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
