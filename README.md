@@ -4,7 +4,7 @@ Premium gaming electronics storefront demo built with vanilla HTML, CSS, and Jav
 
 ## Highlights
 
-- **Admin dashboard** — Manage buy requests/orders (username: `admin`, password: `nexus123`). Access via [admin.html](admin.html) or footer link.
+- **Admin dashboard** — Advanced order management with auto-seeded demo data, revenue chart, top products, search, filters, export CSV, order notes (username: `admin`, password: `nexus123`). Access via [admin.html](admin.html) or footer link.
 - 12-product catalog with category filters
 - Live search overlay and quick product preview modal
 - Sort controls (featured, price, name)
