@@ -412,6 +412,58 @@
     cursor: pointer;
 }
 
+.status-cell { min-width: 130px; }
+
+.status-select-inline {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    min-width: 120px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    cursor: pointer;
+}
+
+.status-select-inline:focus { outline: none; border-color: var(--color-cyan); }
+
+.status-select-inline option[value="pending"] { color: #fbbf24; }
+.status-select-inline option[value="processing"] { color: #3b82f6; }
+.status-select-inline option[value="shipped"] { color: #a855f7; }
+.status-select-inline option[value="delivered"] { color: #22c55e; }
+.status-select-inline option[value="cancelled"] { color: #ef4444; }
+
+.btn-action {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-ship {
+    background: rgba(168, 85, 247, 0.2);
+    color: #a855f7;
+}
+
+.btn-ship:hover {
+    background: rgba(168, 85, 247, 0.4);
+    color: #c084fc;
+}
+
+.btn-cancel {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+}
+
+.btn-cancel:hover {
+    background: rgba(239, 68, 68, 0.4);
+    color: #f87171;
+}
+
 .status-badge {
     display: inline-block;
     padding: 0.25rem 0.6rem;

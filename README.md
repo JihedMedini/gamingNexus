@@ -42,8 +42,9 @@ git push -u origin main
 ## Deploy to GitHub Pages
 
 1. Go to **Settings → Pages** in your repo.
-2. Under "Build and deployment", set **Source** to **GitHub Actions**.
-3. Push to `main` — the workflow will deploy to `https://jihedmedini.github.io/gamingNexus/`.
+2. Under "Build and deployment", set **Source** to **Deploy from a branch**.
+3. Choose branch **gh-pages** and folder **/ (root)**, then Save.
+4. Push to `main` — the workflow deploys the site to the `gh-pages` branch, and your site will be at `https://jihedmedini.github.io/gamingNexus/`.
 
 ## Deploy to Vercel
 

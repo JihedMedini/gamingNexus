@@ -179,6 +179,8 @@ function handleLogin(e) {
 }
 
 function showDashboard() {
+    const gate = document.getElementById('login-gate');
+    if (gate) gate.style.display = 'none';
     document.getElementById('admin-dashboard').style.display = 'block';
     renderStats();
     renderAnalytics();
@@ -456,11 +458,14 @@ function renderOrders() {
     }
     noOrders.style.display = 'none';
 
+    const allStatuses = ['pending', 'processing', 'shipped', 'delivered', 'cancelled'];
+
     tbody.innerHTML = orders.map(order => {
         const itemsSummary = order.items?.map(i => `${i.name} × ${i.qty}`).join(', ') || '-';
         const shortItems = itemsSummary.length > 40 ? itemsSummary.slice(0, 37) + '...' : itemsSummary;
         const customer = `${order.contact?.firstName || ''} ${order.contact?.lastName || ''}`.trim() || order.contact?.email || '-';
-        const nextStatuses = statusFlow[order.status] || [];
+        const canShip = order.status === 'pending' || order.status === 'processing';
+        const canCancel = order.status !== 'cancelled' && order.status !== 'delivered';
 
         return `
             <tr data-order-id="${order.id}">
@@ -469,16 +474,18 @@ function renderOrders() {
                 <td>${customer}</td>
                 <td title="${escapeHtml(itemsSummary)}">${escapeHtml(shortItems)}</td>
                 <td>${formatTotal(order.total)}</td>
-                <td><span class="status-badge status-${order.status}">${statusLabels[order.status] || order.status}</span></td>
+                <td class="status-cell">
+                    <select class="status-select-inline" data-id="${order.id}" data-current="${order.status}">
+                        ${allStatuses.map(s => `
+                            <option value="${s}" ${s === order.status ? 'selected' : ''}>${statusLabels[s]}</option>
+                        `).join('')}
+                    </select>
+                </td>
                 <td>
                     <div class="order-actions">
                         <button type="button" class="btn-view" data-id="${order.id}">View</button>
-                        ${nextStatuses.length ? `
-                            <select class="status-select" data-id="${order.id}">
-                                <option value="">Update</option>
-                                ${nextStatuses.map(s => `<option value="${s}">→ ${statusLabels[s]}</option>`).join('')}
-                            </select>
-                        ` : ''}
+                        ${canShip ? `<button type="button" class="btn-action btn-ship" data-id="${order.id}" title="Mark as Shipped">Ship</button>` : ''}
+                        ${canCancel ? `<button type="button" class="btn-action btn-cancel" data-id="${order.id}" title="Cancel order">Cancel</button>` : ''}
                     </div>
                 </td>
             </tr>
@@ -488,12 +495,33 @@ function renderOrders() {
     tbody.querySelectorAll('.btn-view').forEach(btn => {
         btn.addEventListener('click', () => openOrderDetail(btn.dataset.id));
     });
-    tbody.querySelectorAll('.status-select').forEach(sel => {
+    tbody.querySelectorAll('.status-select-inline').forEach(sel => {
         sel.addEventListener('change', (e) => {
             const val = e.target.value;
-            if (val) {
+            if (val && val !== sel.dataset.current) {
                 updateOrderStatus(sel.dataset.id, val);
-                sel.value = '';
+                renderOrders();
+                renderStats();
+                renderAnalytics();
+                renderTopProducts();
+                renderRecentActivity();
+            }
+        });
+    });
+    tbody.querySelectorAll('.btn-ship').forEach(btn => {
+        btn.addEventListener('click', () => {
+            updateOrderStatus(btn.dataset.id, 'shipped');
+            renderOrders();
+            renderStats();
+            renderAnalytics();
+            renderTopProducts();
+            renderRecentActivity();
+        });
+    });
+    tbody.querySelectorAll('.btn-cancel').forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (confirm('Cancel this order?')) {
+                updateOrderStatus(btn.dataset.id, 'cancelled');
                 renderOrders();
                 renderStats();
                 renderAnalytics();
