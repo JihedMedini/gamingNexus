@@ -38,6 +38,12 @@ git remote add origin https://github.com/JihedMedini/gamingNexus.git
 git push -u origin main
 ```
 
+## Deploy to GitHub Pages
+
+1. Go to **Settings → Pages** in your repo.
+2. Under "Build and deployment", set **Source** to **GitHub Actions**.
+3. Push to `main` — the workflow will deploy to `https://jihedmedini.github.io/gamingNexus/`.
+
 ## Deploy to Vercel
 
 ### Option 1: Dashboard (recommended)
