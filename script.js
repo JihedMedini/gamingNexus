@@ -451,8 +451,36 @@ function openCheckout() {
 
 function closeCheckout() { checkoutModal?.classList.remove('is-open'); document.body.style.overflow = ''; }
 
+const ORDERS_KEY = 'nexus-orders';
+
 function placeOrder() {
+    const form = checkoutForm;
+    if (!form) return;
+    const formData = new FormData(form);
     const orderId = 'NX' + Date.now().toString(36).toUpperCase();
+    const order = {
+        id: orderId,
+        date: Date.now(),
+        status: 'pending',
+        contact: {
+            firstName: formData.get('firstName') || '',
+            lastName: formData.get('lastName') || '',
+            email: formData.get('email') || '',
+            phone: formData.get('phone') || ''
+        },
+        shipping: {
+            address: formData.get('address') || '',
+            city: formData.get('city') || '',
+            postalCode: formData.get('postalCode') || '',
+            country: formData.get('country') || ''
+        },
+        payment: formData.get('payment') || 'card',
+        items: cart.map(i => ({ id: i.id, name: i.name, price: i.price, qty: i.qty })),
+        total: getCartTotal()
+    };
+    const orders = JSON.parse(localStorage.getItem(ORDERS_KEY) || '[]');
+    orders.unshift(order);
+    localStorage.setItem(ORDERS_KEY, JSON.stringify(orders));
     closeCheckout();
     cart = [];
     saveCart();
