@@ -32,9 +32,9 @@ npx serve .
 ```bash
 git init
 git add .
-git commit -m "feat: polish storefront and add vercel deployment setup"
+git commit -m "feat: complete GamingNexus storefront with full UX"
 git branch -M main
-git remote add origin https://github.com/JihedeMedini/repoGamingNexus.git
+git remote add origin https://github.com/JihedMedini/gamingNexus.git
 git push -u origin main
 ```
 
@@ -42,8 +42,8 @@ git push -u origin main
 
 ### Option 1: Dashboard (recommended)
 
-1. Open Vercel and click **Add New Project**.
-2. Import `JihedeMedini/repoGamingNexus`.
+1. Open [Vercel](https://vercel.com) and click **Add New Project**.
+2. Import `JihedMedini/gamingNexus`.
 3. Framework preset: **Other**.
 4. Build command: leave empty.
 5. Output directory: leave empty (root static site).

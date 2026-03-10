@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <a href="#home" class="skip-link">Skip to content</a>
     <div class="grid-bg" aria-hidden="true"></div>
     <p class="announcement-bar">Free express shipping over $99 | 2-year warranty on every order</p>
 
@@ -236,6 +237,49 @@
         </div>
     </section>
 
+    <!-- Support: Warranty, Shipping, FAQ -->
+    <section id="support" class="section support-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Help & information</p>
+                <h2>Support</h2>
+            </div>
+            <div class="support-grid">
+                <article id="warranty" class="support-card reveal">
+                    <h3>Warranty</h3>
+                    <p>Every Nexus Gaming product comes with a <strong>2-year warranty</strong> covering manufacturing defects. Register your product within 30 days of purchase for extended support. Claims are processed within 5–7 business days.</p>
+                    <a href="#contact" class="support-link">Contact support →</a>
+                </article>
+                <article id="shipping" class="support-card reveal">
+                    <h3>Shipping</h3>
+                    <p><strong>Free express shipping</strong> on orders over $99. Standard delivery: 3–5 business days. International shipping available to 50+ countries. Tracking provided for all orders. We aim to dispatch in-stock items within 48 hours.</p>
+                    <a href="#contact" class="support-link">Get help →</a>
+                </article>
+                <article id="faq" class="support-card support-faq reveal">
+                    <h3>FAQ</h3>
+                    <div class="faq-list">
+                        <details class="faq-item">
+                            <summary>How do I return a product?</summary>
+                            <p>Returns are accepted within 30 days. Initiate a return from your account or contact support. Items must be unused and in original packaging.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Do you ship internationally?</summary>
+                            <p>Yes. We ship to 50+ countries. International orders typically arrive in 7–14 business days. Customs fees may apply.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>What payment methods do you accept?</summary>
+                            <p>We accept major credit cards (Visa, Mastercard, Amex), PayPal, and other regional payment methods.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>How do I track my order?</summary>
+                            <p>You’ll receive a tracking link via email once your order ships. You can also check status in your account.</p>
+                        </details>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <!-- Newsletter -->
     <section class="newsletter">
         <div class="container">
@@ -270,9 +314,9 @@
                 </div>
                 <div class="footer-links">
                     <h4>Support</h4>
-                    <a href="#">Warranty</a>
-                    <a href="#">Shipping</a>
-                    <a href="#">FAQ</a>
+                    <a href="#warranty">Warranty</a>
+                    <a href="#shipping">Shipping</a>
+                    <a href="#faq">FAQ</a>
                 </div>
                 <div class="footer-links">
                     <h4>Contact</h4>

@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('current-year').textContent = new Date().getFullYear();
     renderProducts();
     initFilterButtons();
+    initHeroCards();
     initCategoryCards();
     initSorting();
     initClearFilters();
@@ -154,6 +155,37 @@ function initClearFilters() {
         filterButtons?.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         filterButtons?.querySelector('[data-filter="all"]')?.classList.add('active');
         renderProducts();
+    });
+}
+
+function initHeroCards() {
+    const heroCard1 = document.querySelector('.hero-card-1');
+    const heroCard2 = document.querySelector('.hero-card-2');
+    const heroCard3 = document.querySelector('.hero-card-3');
+    const cards = [
+        { el: heroCard1, filter: 'keyboards' },
+        { el: heroCard2, filter: 'headsets' },
+        { el: heroCard3, filter: 'monitors' }
+    ];
+    cards.forEach(({ el, filter }) => {
+        el?.addEventListener('click', () => {
+            currentFilter = filter;
+            filterButtons?.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            const match = filterButtons?.querySelector(`[data-filter="${filter}"]`);
+            if (match) {
+                match.classList.add('active');
+                renderProducts();
+                document.getElementById('collection')?.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+        el?.setAttribute('role', 'button');
+        el?.setAttribute('tabindex', '0');
+        el?.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                el.click();
+            }
+        });
     });
 }
 
