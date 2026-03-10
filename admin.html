@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | Nexus Gaming</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="grid-bg" aria-hidden="true"></div>
+
+    <!-- Login gate -->
+    <div id="login-gate" class="admin-gate">
+        <div class="gate-box">
+            <h1>Admin</h1>
+            <p>Nexus Gaming dashboard</p>
+            <form id="login-form" class="admin-login-form">
+                <input type="text" name="username" placeholder="Username" required autocomplete="username">
+                <input type="password" name="password" placeholder="Password" required autocomplete="current-password">
+                <button type="submit" class="btn btn-primary">Sign in</button>
+            </form>
+            <p id="login-error" class="login-error" style="display: none;">Invalid credentials</p>
+        </div>
+    </div>
+
+    <!-- Admin dashboard -->
+    <div id="admin-dashboard" class="admin-dashboard" style="display: none;">
+        <header class="admin-header">
+            <div class="admin-header-inner">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">▶</span>
+                    <span>Nexus Gaming</span>
+                </a>
+                <h1>Admin Dashboard</h1>
+                <div class="header-actions">
+                    <button type="button" class="btn btn-outline btn-sm" id="refresh-btn" title="Refresh">↻ Refresh</button>
+                    <a href="index.html" class="btn btn-outline">← Back to Store</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="admin-main">
+            <div class="admin-stats" id="admin-stats"></div>
+
+            <div class="admin-grid">
+                <section class="admin-section admin-section-chart">
+                    <div id="admin-analytics"></div>
+                </section>
+                <aside class="admin-sidebar">
+                    <div class="admin-card" id="admin-top-products"></div>
+                    <div class="admin-card" id="admin-activity"></div>
+                </aside>
+            </div>
+
+            <section class="admin-section">
+                <div class="section-toolbar">
+                    <h2>Buy Requests / Orders</h2>
+                    <div class="section-controls">
+                        <input type="search" id="orders-search" placeholder="Search by ID, name, email..." class="search-input">
+                        <select id="date-range" class="date-range-select" aria-label="Date range">
+                            <option value="all">All time</option>
+                            <option value="7">Last 7 days</option>
+                            <option value="30">Last 30 days</option>
+                        </select>
+                        <button type="button" class="btn btn-outline btn-sm" id="export-csv">Export CSV</button>
+                        <button type="button" class="btn btn-outline btn-sm" id="load-demo">Load demo data</button>
+                        <div class="filter-status">
+                            <button type="button" class="filter-btn active" data-status="all">All</button>
+                            <button type="button" class="filter-btn" data-status="pending">Pending</button>
+                            <button type="button" class="filter-btn" data-status="processing">Processing</button>
+                            <button type="button" class="filter-btn" data-status="shipped">Shipped</button>
+                            <button type="button" class="filter-btn" data-status="delivered">Delivered</button>
+                            <button type="button" class="filter-btn" data-status="cancelled">Cancelled</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="orders-table-wrap">
+                    <table class="orders-table" id="orders-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Date</th>
+                                <th>Customer</th>
+                                <th>Items</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orders-tbody"></tbody>
+                    </table>
+                </div>
+                <p id="no-orders" class="no-orders" style="display: none;">No orders yet.</p>
+            </section>
+
+            <!-- Order detail modal -->
+            <div class="modal" id="order-detail-modal" aria-hidden="true">
+                <div class="modal-backdrop" id="order-modal-backdrop"></div>
+                <div class="modal-content order-detail-content">
+                    <div class="modal-header">
+                        <h3>Order <span id="order-detail-id"></span></h3>
+                        <button class="modal-close" id="order-modal-close" aria-label="Close">&times;</button>
+                    </div>
+                    <div class="modal-body" id="order-detail-body"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
