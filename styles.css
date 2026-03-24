@@ -352,6 +352,7 @@ body {
     font-size: 1.1rem;
     color: var(--color-text-muted);
     margin-bottom: 2rem;
+    min-height: 1.8em;
 }
 
 .hero-visual {
@@ -1350,4 +1351,293 @@ body {
 @media (max-width: 480px) {
     .category-grid { grid-template-columns: 1fr; }
     .announcement-bar { font-size: 0.7rem; padding: 0.45rem 0.5rem; }
+}
+
+/* ========== Scroll Progress Bar ========== */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-cyan) 0%, var(--color-purple) 100%);
+    z-index: 999;
+    transition: width 0.05s linear;
+    pointer-events: none;
+}
+
+/* ========== Back to Top ========== */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 90;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    color: var(--color-cyan);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: var(--transition);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: var(--color-cyan);
+    color: var(--color-bg);
+    border-color: var(--color-cyan);
+    box-shadow: 0 4px 24px rgba(0, 212, 255, 0.4);
+}
+
+/* ========== Toast Notifications ========== */
+.toast-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 5rem;
+    z-index: 500;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 0.75rem;
+    pointer-events: none;
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.9rem 1.25rem;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    font-size: 0.95rem;
+    font-weight: 600;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    pointer-events: auto;
+    animation: toast-in 0.35s var(--ease-out) forwards;
+    max-width: 340px;
+}
+
+.toast.toast-out {
+    animation: toast-out 0.3s var(--ease-out) forwards;
+}
+
+.toast-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.toast-icon.toast-cart { background: rgba(0, 212, 255, 0.2); color: var(--color-cyan); }
+.toast-icon.toast-wishlist { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+.toast-icon.toast-success { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
+.toast-icon.toast-info { background: rgba(0, 212, 255, 0.2); color: var(--color-cyan); }
+
+@keyframes toast-in {
+    from { opacity: 0; transform: translateX(60px) scale(0.95); }
+    to { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes toast-out {
+    from { opacity: 1; transform: translateX(0) scale(1); }
+    to { opacity: 0; transform: translateX(60px) scale(0.95); }
+}
+
+/* ========== Wishlist ========== */
+.wishlist-count {
+    position: absolute;
+    top: 4px; right: 4px;
+    width: 18px; height: 18px;
+    background: #ef4444;
+    color: var(--color-white);
+    font-size: 0.7rem;
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0);
+    transition: var(--transition);
+}
+
+.wishlist-count.has-items { opacity: 1; transform: scale(1); }
+
+.wishlist-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 2;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(10, 14, 20, 0.7);
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--color-text-muted);
+    transition: var(--transition);
+}
+
+.wishlist-btn:hover { color: #ef4444; border-color: #ef4444; }
+.wishlist-btn.is-wishlisted { color: #ef4444; }
+.wishlist-btn.is-wishlisted svg { fill: #ef4444; stroke: #ef4444; }
+
+.wishlist-modal-content {
+    max-width: 420px;
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+    background: var(--color-bg-elevated);
+    border-left: 1px solid var(--color-border);
+}
+
+.wishlist-empty { color: var(--color-text-muted); text-align: center; padding: 2rem; }
+
+.wishlist-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.wishlist-item-img {
+    width: 64px;
+    height: 64px;
+    min-width: 64px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.wishlist-item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.wishlist-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.wishlist-item-info strong {
+    display: block;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+}
+
+.wishlist-item-info span {
+    font-size: 0.9rem;
+    color: var(--color-cyan);
+    font-weight: 700;
+}
+
+.wishlist-item-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.wishlist-add-cart {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: var(--color-cyan);
+    color: var(--color-bg);
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.wishlist-add-cart:hover { filter: brightness(1.1); }
+
+.wishlist-remove {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: var(--color-text-muted);
+    transition: var(--transition);
+}
+
+.wishlist-remove:hover { color: #ef4444; }
+
+/* ========== Star Ratings ========== */
+.product-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-bottom: 0.5rem;
+}
+
+.stars {
+    display: flex;
+    gap: 1px;
+    color: #fbbf24;
+    font-size: 0.85rem;
+}
+
+.stars .star-empty { color: var(--color-text-muted); opacity: 0.4; }
+
+.rating-text {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+.product-modal-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.product-modal-rating .stars { font-size: 1rem; }
+.product-modal-rating .rating-text { font-size: 0.9rem; }
+
+/* ========== Typewriter ========== */
+.typewriter-cursor {
+    display: inline-block;
+    color: var(--color-cyan);
+    font-weight: 300;
+    animation: blink-cursor 0.75s step-end infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink-cursor {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@media (max-width: 768px) {
+    .toast-container { right: 1rem; bottom: 5rem; }
+    .back-to-top { bottom: 1.5rem; right: 1.5rem; }
 }
