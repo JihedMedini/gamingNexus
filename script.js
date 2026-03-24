@@ -6,24 +6,33 @@
 const CURRENCY = '$';
 
 const PRODUCTS = [
-    { id: 1, name: 'Pro X Mechanical Keyboard', price: 149, category: 'keyboards', categoryLabel: 'Keyboards', desc: 'Full RGB mechanical keyboard with Cherry MX switches. Programmable keys, aluminum frame. Built for esports.', image: 'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=600', badge: 'Best Seller', options: { switch: ['Linear', 'Tactile', 'Clicky'] } },
-    { id: 2, name: 'Ultra Light Gaming Mouse', price: 89, category: 'mice', categoryLabel: 'Mice', desc: '49g wireless gaming mouse. 25K DPI sensor, 70hr battery. Perfect for competitive FPS.', image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600', options: { color: ['Black', 'White', 'Pink'] } },
-    { id: 3, name: 'Immersive 7.1 Headset', price: 129, category: 'headsets', categoryLabel: 'Headsets', desc: 'Wireless gaming headset with 7.1 surround, 50mm drivers. Noise-canceling mic. 30hr battery.', image: 'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=600', badge: 'New' },
-    { id: 4, name: '27" 240Hz Gaming Monitor', price: 399, category: 'monitors', categoryLabel: 'Monitors', desc: '1ms response, 240Hz refresh. HDR400, G-Sync compatible. IPS panel for vivid colors.', image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600' },
-    { id: 5, name: 'Pro Racing Chair', price: 349, category: 'chairs', categoryLabel: 'Chairs', desc: 'Ergonomic gaming chair. 4D armrests, lumbar support, recline 155°. Premium leather.', image: 'https://images.unsplash.com/photo-1580480054693-897d289e7ca3?w=600' },
-    { id: 6, name: 'RGB Mouse Pad XL', price: 35, category: 'peripherals', categoryLabel: 'Peripherals', desc: 'Extended RGB mouse pad. 900x400mm. 16.8M colors, multiple lighting modes.', image: 'https://images.unsplash.com/photo-1542751110-97427bbecf20?w=600' },
-    { id: 7, name: 'Stream Webcam 1080p', price: 99, category: 'peripherals', categoryLabel: 'Peripherals', desc: '60fps 1080p streaming webcam. Auto-focus, built-in ring light. Mount included.', image: 'https://images.unsplash.com/photo-1587826080692-f439cd0b70da?w=600' },
-    { id: 8, name: 'Wired Pro Controller', price: 59, category: 'peripherals', categoryLabel: 'Peripherals', desc: 'Pro-grade wired controller. Hall-effect sticks, programmable back buttons.', image: 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=600' },
-    { id: 9, name: 'TKL RGB Keyboard', price: 119, category: 'keyboards', categoryLabel: 'Keyboards', desc: 'Tenkeyless mechanical. Hot-swap sockets, PBT keycaps. Compact for maximum desk space.', image: 'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=600', options: { color: ['Black', 'White'] } },
-    { id: 10, name: 'Wireless Gaming Headset', price: 159, category: 'headsets', categoryLabel: 'Headsets', desc: 'Premium wireless. 40hr battery, low-latency 2.4GHz. Memory foam ear cushions.', image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600' },
-    { id: 11, name: '32" Curved Gaming Monitor', price: 449, category: 'monitors', categoryLabel: 'Monitors', desc: '32" 165Hz curved VA. 1ms MPRT, FreeSync. 1500R curvature for immersion.', image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600' },
-    { id: 12, name: 'Desk Mount Monitor Arm', price: 79, category: 'peripherals', categoryLabel: 'Peripherals', desc: 'Dual monitor arm. Gas spring, full motion. Supports up to 34" per monitor.', image: 'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=600' }
+    { id: 1, name: 'Pro X Mechanical Keyboard', price: 149, category: 'keyboards', categoryLabel: 'Keyboards', desc: 'Full RGB mechanical keyboard with Cherry MX switches. Programmable keys, aluminum frame. Built for esports.', image: 'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=600', badge: 'Best Seller', rating: 4.8, reviews: 342, options: { switch: ['Linear', 'Tactile', 'Clicky'] } },
+    { id: 2, name: 'Ultra Light Gaming Mouse', price: 89, category: 'mice', categoryLabel: 'Mice', desc: '49g wireless gaming mouse. 25K DPI sensor, 70hr battery. Perfect for competitive FPS.', image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600', rating: 4.6, reviews: 218, options: { color: ['Black', 'White', 'Pink'] } },
+    { id: 3, name: 'Immersive 7.1 Headset', price: 129, category: 'headsets', categoryLabel: 'Headsets', desc: 'Wireless gaming headset with 7.1 surround, 50mm drivers. Noise-canceling mic. 30hr battery.', image: 'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=600', badge: 'New', rating: 4.7, reviews: 156 },
+    { id: 4, name: '27" 240Hz Gaming Monitor', price: 399, category: 'monitors', categoryLabel: 'Monitors', desc: '1ms response, 240Hz refresh. HDR400, G-Sync compatible. IPS panel for vivid colors.', image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600', rating: 4.9, reviews: 89 },
+    { id: 5, name: 'Pro Racing Chair', price: 349, category: 'chairs', categoryLabel: 'Chairs', desc: 'Ergonomic gaming chair. 4D armrests, lumbar support, recline 155°. Premium leather.', image: 'https://images.unsplash.com/photo-1580480054693-897d289e7ca3?w=600', rating: 4.5, reviews: 203 },
+    { id: 6, name: 'RGB Mouse Pad XL', price: 35, category: 'peripherals', categoryLabel: 'Peripherals', desc: 'Extended RGB mouse pad. 900x400mm. 16.8M colors, multiple lighting modes.', image: 'https://images.unsplash.com/photo-1542751110-97427bbecf20?w=600', rating: 4.3, reviews: 412 },
+    { id: 7, name: 'Stream Webcam 1080p', price: 99, category: 'peripherals', categoryLabel: 'Peripherals', desc: '60fps 1080p streaming webcam. Auto-focus, built-in ring light. Mount included.', image: 'https://images.unsplash.com/photo-1587826080692-f439cd0b70da?w=600', rating: 4.4, reviews: 127 },
+    { id: 8, name: 'Wired Pro Controller', price: 59, category: 'peripherals', categoryLabel: 'Peripherals', desc: 'Pro-grade wired controller. Hall-effect sticks, programmable back buttons.', image: 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=600', rating: 4.2, reviews: 95 },
+    { id: 9, name: 'TKL RGB Keyboard', price: 119, category: 'keyboards', categoryLabel: 'Keyboards', desc: 'Tenkeyless mechanical. Hot-swap sockets, PBT keycaps. Compact for maximum desk space.', image: 'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=600', rating: 4.7, reviews: 264, options: { color: ['Black', 'White'] } },
+    { id: 10, name: 'Wireless Gaming Headset', price: 159, category: 'headsets', categoryLabel: 'Headsets', desc: 'Premium wireless. 40hr battery, low-latency 2.4GHz. Memory foam ear cushions.', image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600', rating: 4.6, reviews: 178 },
+    { id: 11, name: '32" Curved Gaming Monitor', price: 449, category: 'monitors', categoryLabel: 'Monitors', desc: '32" 165Hz curved VA. 1ms MPRT, FreeSync. 1500R curvature for immersion.', image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600', rating: 4.8, reviews: 67 },
+    { id: 12, name: 'Desk Mount Monitor Arm', price: 79, category: 'peripherals', categoryLabel: 'Peripherals', desc: 'Dual monitor arm. Gas spring, full motion. Supports up to 34" per monitor.', image: 'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=600', rating: 4.5, reviews: 143 }
 ];
+
+let wishlist = JSON.parse(localStorage.getItem('nexus-wishlist') || '[]');
 
 let cart = JSON.parse(localStorage.getItem('nexus-cart') || '[]');
 let currentFilter = 'all';
 let searchQuery = '';
 let currentSort = 'featured';
+
+const HERO_PHRASES = [
+    'Premium keyboards, precision mice, immersive headsets \u2014 built for esports and enthusiasts.',
+    'Gear engineered for victory. Feel the difference in every click.',
+    'Level up your setup with pro-grade gaming hardware.',
+    'From casual to competitive \u2014 performance you can feel.'
+];
 
 const productGrid = document.getElementById('product-grid');
 const filterButtons = document.getElementById('filter-buttons');
@@ -47,6 +56,11 @@ const checkoutOrderSummary = document.getElementById('checkout-order-summary');
 const confirmationModal = document.getElementById('confirmation-modal');
 const orderNumberEl = document.getElementById('order-number');
 
+const wishlistModal = document.getElementById('wishlist-modal');
+const wishlistItems = document.getElementById('wishlist-items');
+const wishlistEmpty = document.getElementById('wishlist-empty');
+const toastContainer = document.getElementById('toast-container');
+
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('current-year').textContent = new Date().getFullYear();
     renderProducts();
@@ -64,6 +78,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initNewsletter();
     initRevealAnimation();
     initSmoothScroll();
+    initWishlist();
+    initScrollProgress();
+    initBackToTop();
+    initTypewriter();
 });
 
 function getFilteredProducts() {
@@ -77,6 +95,17 @@ function getFilteredProducts() {
     });
 }
 
+function renderStars(rating) {
+    const full = Math.floor(rating);
+    const half = rating % 1 >= 0.5 ? 1 : 0;
+    const empty = 5 - full - half;
+    let html = '';
+    for (let i = 0; i < full; i++) html += '<span>\u2605</span>';
+    if (half) html += '<span>\u2605</span>';
+    for (let i = 0; i < empty; i++) html += '<span class="star-empty">\u2605</span>';
+    return html;
+}
+
 function renderProducts() {
     const products = getSortedProducts(getFilteredProducts());
     productCount.textContent = `${products.length} product${products.length !== 1 ? 's' : ''}`;
@@ -86,12 +115,21 @@ function renderProducts() {
         <article class="product-card" data-product-id="${p.id}" data-category="${p.category}">
             <div class="product-image">
                 ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
+                <button class="wishlist-btn ${wishlist.includes(p.id) ? 'is-wishlisted' : ''}" data-product-id="${p.id}" aria-label="Toggle wishlist">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                </button>
                 <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'">
                 <button class="product-quick-view" aria-label="View ${p.name}">Quick View</button>
             </div>
             <div class="product-info">
                 <p class="product-category">${p.categoryLabel}</p>
                 <h3>${p.name}</h3>
+                <div class="product-rating">
+                    <div class="stars">${renderStars(p.rating)}</div>
+                    <span class="rating-text">${p.rating} (${p.reviews})</span>
+                </div>
                 <p class="product-desc">${p.desc}</p>
                 <div class="product-footer">
                     <span class="price">${CURRENCY}${p.price}</span>
@@ -104,13 +142,17 @@ function renderProducts() {
     productGrid.querySelectorAll('.product-card').forEach(card => {
         const id = parseInt(card.dataset.productId);
         card.addEventListener('click', (e) => {
-            if (e.target.closest('.btn-add')) return;
+            if (e.target.closest('.btn-add') || e.target.closest('.wishlist-btn')) return;
             openProductModal(id);
         });
         card.querySelector('.btn-add')?.addEventListener('click', (e) => {
             e.stopPropagation();
             addToCart(id, 1);
             showAddedFeedback(card.querySelector('.btn-add'));
+        });
+        card.querySelector('.wishlist-btn')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleWishlist(id);
         });
     });
 }
@@ -300,6 +342,10 @@ function openProductModal(id) {
             <div class="product-modal-details">
                 <p class="product-category">${product.categoryLabel}</p>
                 <h2>${product.name}</h2>
+                <div class="product-modal-rating">
+                    <div class="stars">${renderStars(product.rating)}</div>
+                    <span class="rating-text">${product.rating} (${product.reviews} reviews)</span>
+                </div>
                 <p class="product-modal-price">${CURRENCY}${product.price}</p>
                 <p class="product-modal-desc">${product.desc}</p>
                 ${optionsHtml}
@@ -353,6 +399,7 @@ function addToCart(productId, qty = 1) {
     else cart.push({ id: product.id, name: product.name, price: product.price, qty });
     saveCart();
     updateCartUI();
+    showToast(`${product.name} added to cart`, 'cart');
 }
 
 function removeFromCart(index) {
@@ -522,6 +569,7 @@ function initNewsletter() {
         btn.textContent = 'Subscribed!';
         btn.disabled = true;
         input.value = '';
+        showToast('Welcome to the Nexus! Check your email for 10% off.', 'success');
         setTimeout(() => { btn.textContent = 'Subscribe'; btn.disabled = false; }, 2500);
     });
 }
@@ -539,4 +587,148 @@ function initSmoothScroll() {
             }
         });
     });
+}
+
+/* ========== Toast Notification System ========== */
+function showToast(message, type = 'info') {
+    const icons = { cart: '\uD83D\uDED2', wishlist: '\u2764', success: '\u2714', info: '\u2139' };
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = `
+        <span class="toast-icon toast-${type}">${icons[type] || icons.info}</span>
+        <span>${message}</span>
+    `;
+    toastContainer?.appendChild(toast);
+    setTimeout(() => {
+        toast.classList.add('toast-out');
+        toast.addEventListener('animationend', () => toast.remove());
+    }, 3000);
+}
+
+/* ========== Wishlist ========== */
+function saveWishlist() { localStorage.setItem('nexus-wishlist', JSON.stringify(wishlist)); }
+
+function toggleWishlist(productId) {
+    const product = PRODUCTS.find(p => p.id === productId);
+    if (!product) return;
+    const idx = wishlist.indexOf(productId);
+    if (idx > -1) {
+        wishlist.splice(idx, 1);
+        showToast(`${product.name} removed from wishlist`, 'wishlist');
+    } else {
+        wishlist.push(productId);
+        showToast(`${product.name} added to wishlist`, 'wishlist');
+    }
+    saveWishlist();
+    updateWishlistUI();
+    renderProducts();
+}
+
+function updateWishlistUI() {
+    const count = wishlist.length;
+    document.querySelector('.wishlist-count').textContent = count;
+    document.querySelector('.wishlist-count').classList.toggle('has-items', count > 0);
+
+    if (wishlist.length === 0) {
+        wishlistEmpty.style.display = 'block';
+        wishlistItems.innerHTML = '';
+    } else {
+        wishlistEmpty.style.display = 'none';
+        wishlistItems.innerHTML = wishlist.map(id => {
+            const p = PRODUCTS.find(pr => pr.id === id);
+            if (!p) return '';
+            return `
+                <div class="wishlist-item" data-product-id="${p.id}">
+                    <div class="wishlist-item-img"><img src="${p.image}" alt="${p.name}" loading="lazy"></div>
+                    <div class="wishlist-item-info">
+                        <strong>${p.name}</strong>
+                        <span>${CURRENCY}${p.price}</span>
+                    </div>
+                    <div class="wishlist-item-actions">
+                        <button class="wishlist-add-cart" data-product-id="${p.id}">Add to Cart</button>
+                        <button class="wishlist-remove" data-product-id="${p.id}" aria-label="Remove">&times;</button>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        wishlistItems.querySelectorAll('.wishlist-add-cart').forEach(btn => {
+            btn.addEventListener('click', () => {
+                addToCart(parseInt(btn.dataset.productId), 1);
+            });
+        });
+        wishlistItems.querySelectorAll('.wishlist-remove').forEach(btn => {
+            btn.addEventListener('click', () => {
+                toggleWishlist(parseInt(btn.dataset.productId));
+            });
+        });
+    }
+}
+
+function openWishlist() { wishlistModal?.classList.add('is-open'); document.body.style.overflow = 'hidden'; }
+function closeWishlist() { wishlistModal?.classList.remove('is-open'); document.body.style.overflow = ''; }
+
+function initWishlist() {
+    document.getElementById('wishlist-toggle')?.addEventListener('click', openWishlist);
+    document.querySelector('.wishlist-modal-backdrop')?.addEventListener('click', closeWishlist);
+    document.querySelector('.wishlist-modal-close')?.addEventListener('click', closeWishlist);
+    updateWishlistUI();
+}
+
+/* ========== Scroll Progress Bar ========== */
+function initScrollProgress() {
+    const progressBar = document.getElementById('scroll-progress');
+    if (!progressBar) return;
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar.style.width = scrollPercent + '%';
+    }, { passive: true });
+}
+
+/* ========== Back to Top ========== */
+function initBackToTop() {
+    const btn = document.getElementById('back-to-top');
+    if (!btn) return;
+    window.addEventListener('scroll', () => {
+        btn.classList.toggle('is-visible', window.scrollY > 600);
+    }, { passive: true });
+    btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+/* ========== Hero Typewriter ========== */
+function initTypewriter() {
+    const el = document.getElementById('typewriter-text');
+    if (!el) return;
+    let phraseIdx = 0;
+    let charIdx = 0;
+    let isDeleting = false;
+    let pauseTimer = null;
+
+    function tick() {
+        const phrase = HERO_PHRASES[phraseIdx];
+        if (!isDeleting) {
+            el.textContent = phrase.substring(0, charIdx + 1);
+            charIdx++;
+            if (charIdx === phrase.length) {
+                pauseTimer = setTimeout(() => { isDeleting = true; tick(); }, 2000);
+                return;
+            }
+            setTimeout(tick, 35);
+        } else {
+            el.textContent = phrase.substring(0, charIdx - 1);
+            charIdx--;
+            if (charIdx === 0) {
+                isDeleting = false;
+                phraseIdx = (phraseIdx + 1) % HERO_PHRASES.length;
+                pauseTimer = setTimeout(tick, 400);
+                return;
+            }
+            setTimeout(tick, 20);
+        }
+    }
+    tick();
 }
